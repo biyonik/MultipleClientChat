@@ -89,11 +89,10 @@ public class Client {
         try (Socket socket = new Socket(SERVER_IP, SERVER_PORT)) {
             Client client = new Client(socket, username);
             client.listenMessage();
-            // Print other connected users
-
             client.sendClientNameMessage();
             client.sendMessageGlobal();
         } catch (IOException e) {
+            System.out.println("Sunucu ile bağlantı kurulamadı!");
             System.out.printf("ClientClass_mainError: %s\n", e.getMessage());
         }
     }
